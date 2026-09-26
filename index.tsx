@@ -38,14 +38,14 @@ const pluginDeleting = new Set<string>();
 const settings = definePluginSettings({
     duration: {
         type: OptionType.SLIDER,
-        description: "Délai avant suppression des messages, en minutes (1 min à 6 h)",
+        description: "Delay before your messages are deleted, in minutes (1 min to 6 h)",
         markers: [1, 30, 60, 120, 180, 240, 300, 360],
         default: 10,
         stickToMarkers: false
     },
     showSaved: {
         type: OptionType.BOOLEAN,
-        description: "Afficher les messages éphémères supprimés (en bleu)",
+        description: "Show deleted ephemeral messages (in blue)",
         default: false,
         onChange: reloadCurrentChannel
     },
@@ -201,7 +201,7 @@ const patchContextMenu: NavContextMenuPatchCallback = (children, { channel }: { 
         <Menu.MenuGroup>
             <Menu.MenuCheckboxItem
                 id="vc-ephemeral-chat"
-                label="Chat éphémère"
+                label="Ephemeral Chat"
                 checked={enabled}
                 action={() => {
                     const { [channel.id]: _, ...rest } = settings.store.channels;
@@ -210,7 +210,7 @@ const patchContextMenu: NavContextMenuPatchCallback = (children, { channel }: { 
             />
             <Menu.MenuCheckboxItem
                 id="vc-ephemeral-chat-show"
-                label="Voir les messages éphémères"
+                label="Show Ephemeral Messages"
                 checked={showSaved}
                 action={() => settings.store.showSaved = !showSaved}
             />
@@ -220,7 +220,7 @@ const patchContextMenu: NavContextMenuPatchCallback = (children, { channel }: { 
 
 export default definePlugin({
     name: "EphemeralChat",
-    description: "Supprime tes messages d'un MP après un délai configurable, tout en les sauvegardant dans un fichier pour pouvoir les revoir (en bleu).",
+    description: "Deletes your messages in a DM after a configurable delay, while saving them to a file so you can still see them (in blue).",
     authors: [{ name: "LilNesquuik", id: 542790005219655687n }],
     settings,
 

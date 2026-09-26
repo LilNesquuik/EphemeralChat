@@ -1,17 +1,17 @@
 # EphemeralChat
 
-Plugin [Vencord](https://vencord.dev) : dans un MP, coche **Chat éphémère** (clic droit sur la conversation) et tes messages sont supprimés après un délai réglable (1 min à 6 h, 10 min par défaut).
+A [Vencord](https://vencord.dev) plugin. In a DM, right-click the conversation and tick **Ephemeral Chat**: the messages you send there get deleted after a configurable delay (1 min to 6 h, 10 min by default).
 
-Les messages sont sauvegardés dans `VencordData/EphemeralChat.json`. Coche **Voir les messages éphémères** pour les réafficher en bleu dans la conversation. Seuls les messages supprimés par le plugin sont concernés, pas ceux que tu supprimes toi-même.
+Messages are saved to `VencordData/EphemeralChat.json`. Tick **Show Ephemeral Messages** to see them again in the conversation, highlighted in blue. Only messages deleted by the plugin are shown, not the ones you delete yourself.
 
-Desktop uniquement (il écrit un fichier).
+Desktop only (it writes a file).
 
 ## Installation
 
 ```sh
 cd Vencord/src/userplugins
-git clone <url-du-repo> ephemeralChat.desktop
+git clone https://github.com/LilNesquuik/EphemeralChat ephemeralChat.desktop
 cd ../.. && pnpm build
 ```
 
-Le dossier doit garder le suffixe `.desktop`, sinon le plugin est aussi compilé pour la version web, où il ne peut pas fonctionner.
+Keep the `.desktop` suffix on the folder, otherwise the plugin is also built for the web version, where it can't work.
